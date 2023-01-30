@@ -10,10 +10,11 @@ use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
-use Indianic\CountryStateCityManagement\Console\CountryManagementCommand;
-use Indianic\CountryStateCityManagement\Nova\Resources\Country;
-use Indianic\CountryStateCityManagement\Nova\Resources\State;
+use Illuminate\Support\Facades\Artisan;
 use Indianic\CountryStateCityManagement\Nova\Resources\City;
+use Indianic\CountryStateCityManagement\Nova\Resources\State;
+use Indianic\CountryStateCityManagement\Nova\Resources\Country;
+use Indianic\CountryStateCityManagement\Console\CountryManagementCommand;
 use Indianic\CountryStateCityManagement\Policies\CountryStateCityManagementPolicy;
 
 class CountryStateCityManagementServiceProvider extends ServiceProvider {
