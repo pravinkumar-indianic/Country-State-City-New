@@ -17,8 +17,8 @@ return new class extends Migration {
             $table->string('shortname', 2);
             $table->string('name');
             $table->integer('phonecode');
-            $table->boolean('status')->default(0);
             $table->string('flag_image')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
