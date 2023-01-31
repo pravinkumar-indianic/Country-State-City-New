@@ -66,6 +66,7 @@ class CountryStateCityManagementServiceProvider extends ServiceProvider {
                 CountryManagementCommand::class,
             ]);
         }
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 
     /**
