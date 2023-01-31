@@ -68,7 +68,7 @@ class Country extends Resource {
             Text::make('phonecode')
                     ->sortable()
                     ->rules('required', 'max:5'),
-            HasMany::make('State', 'State', \Indianic\CountryStateCityManagement\Nova\Resources\State::class),
+            HasMany::make('State', 'state', \Indianic\CountryStateCityManagement\Nova\Resources\State::class),
             
             NovaSwitcher::make('Status')
         ];

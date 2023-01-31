@@ -3,18 +3,13 @@
 namespace Indianic\CountryStateCityManagement;
 
 use Laravel\Nova\Nova;
-use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Events\ServingNova;
-use Illuminate\Support\Facades\Event;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Artisan;
 use Indianic\CountryStateCityManagement\Nova\Resources\City;
 use Indianic\CountryStateCityManagement\Nova\Resources\State;
 use Indianic\CountryStateCityManagement\Nova\Resources\Country;
-use Indianic\CountryStateCityManagement\Console\CountryManagementCommand;
 use Indianic\CountryStateCityManagement\Policies\CountryStateCityManagementPolicy;
 
 class CountryStateCityManagementServiceProvider extends ServiceProvider {
@@ -61,10 +56,6 @@ class CountryStateCityManagementServiceProvider extends ServiceProvider {
                     echo "\033[0;32mSeeded:\033[0m {$class} ({$runTime} seconds)\n";
                 }
             }
-
-            $this->commands([
-                CountryManagementCommand::class,
-            ]);
         }
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }

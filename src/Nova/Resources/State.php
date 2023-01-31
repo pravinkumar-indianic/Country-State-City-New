@@ -56,9 +56,9 @@ class State extends Resource {
                     ->sortable()
                     ->rules('required', 'max:255'),
             
-            HasMany::make('City', 'City', \Indianic\CountryStateCityManagement\Nova\Resources\City::class),
+            HasMany::make('City', 'city', \Indianic\CountryStateCityManagement\Nova\Resources\City::class),
             
-            BelongsTo::make('Country', 'Country', \Indianic\CountryStateCityManagement\Nova\Resources\Country::class),
+            BelongsTo::make('Country', 'country', \Indianic\CountryStateCityManagement\Nova\Resources\Country::class),
             
             NovaSwitcher::make('Status')
         ];

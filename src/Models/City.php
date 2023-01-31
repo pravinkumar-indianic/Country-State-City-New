@@ -2,17 +2,11 @@
 
 namespace Indianic\CountryStateCityManagement\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
-{
-    use HasFactory;
+class City extends Model {
 
-    public $timestamps = false;
-
-    public function state()
-    {
+    public function state() {
         return $this->belongsTo(State::class);
     }
 
