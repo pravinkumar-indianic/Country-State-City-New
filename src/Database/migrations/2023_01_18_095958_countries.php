@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->boolean('status')->default(0);
             $table->timestamps();
         });
-         Artisan::call('db:seed', [ '--class' =>'Indianic\\CountryStateCityManagement\\Database\\Seeders\\CountriesTableSeeder']);
+        Artisan::call('db:seed', ['--class' => 'Indianic\\CountryStateCityManagement\\Database\\Seeders\\CountriesTableSeeder']);
     }
 
     /**

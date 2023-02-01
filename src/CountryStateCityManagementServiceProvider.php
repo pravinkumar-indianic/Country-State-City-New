@@ -36,7 +36,7 @@ class CountryStateCityManagementServiceProvider extends ServiceProvider {
             ]);
         });
 
-        if (!Schema::hasTable('countries')) {
+        if (!Schema::hasTable('countries') && !Schema::hasTable('states') && !Schema::hasTable('cities')) {
             if ($this->app->runningInConsole()) {
                 $this->loadMigrationsFrom(base_path('vendor/indianic/country-state-city-management-new/src/Database/migrations'));
                 $path = 'vendor/indianic/country-state-city-management-new/src/Database';

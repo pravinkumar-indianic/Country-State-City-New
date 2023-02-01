@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('flag')->nullable();
             $table->timestamps();
         });
+        Artisan::call('db:seed', ['--class' => 'Indianic\\CountryStateCityManagement\\Database\\Seeders\\StatesTableSeeder']);
     }
 
     /**
