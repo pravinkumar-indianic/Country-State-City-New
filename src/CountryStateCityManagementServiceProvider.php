@@ -5,13 +5,13 @@ namespace Indianic\CountryStateCityManagement;
 use Laravel\Nova\Nova;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Events\ServingNova;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Artisan;
 use Indianic\CountryStateCityManagement\Nova\Resources\City;
 use Indianic\CountryStateCityManagement\Nova\Resources\State;
 use Indianic\CountryStateCityManagement\Nova\Resources\Country;
 use Indianic\CountryStateCityManagement\Policies\CountryStateCityManagementPolicy;
-use Illuminate\Support\Facades\Schema;
 
 class CountryStateCityManagementServiceProvider extends ServiceProvider {
 
