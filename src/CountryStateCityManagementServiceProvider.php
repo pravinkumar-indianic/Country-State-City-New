@@ -48,18 +48,6 @@ class CountryStateCityManagementServiceProvider extends ServiceProvider {
                         ]);
                     }
                 }
-
-//                if (is_dir($path . "/Seeders")) {
-//                    $file_names = glob($path . "/Seeders" . '/*.php');
-//                    foreach ($file_names as $filename) {
-//                        $class = basename($filename, '.php');
-//                        echo "\033[1;33mSeeding:\033[0m {$class}\n";
-//                        $startTime = microtime(true);
-//                        Artisan::call('db:seed', ['--class' => 'Indianic\\CountryStateCityManagement\\Database\\Seeders\\' . $class, '--force' => '']);
-//                        $runTime = round(microtime(true) - $startTime, 2);
-//                        echo "\033[0;32mSeeded:\033[0m {$class} ({$runTime} seconds)\n";
-//                    }
-//                }
             }
         }
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
