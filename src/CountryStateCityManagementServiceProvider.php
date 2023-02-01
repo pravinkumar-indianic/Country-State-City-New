@@ -11,6 +11,7 @@ use Indianic\CountryStateCityManagement\Nova\Resources\City;
 use Indianic\CountryStateCityManagement\Nova\Resources\State;
 use Indianic\CountryStateCityManagement\Nova\Resources\Country;
 use Indianic\CountryStateCityManagement\Policies\CountryStateCityManagementPolicy;
+use Illuminate\Support\Facades\Schema;
 
 class CountryStateCityManagementServiceProvider extends ServiceProvider {
 
@@ -24,6 +25,8 @@ class CountryStateCityManagementServiceProvider extends ServiceProvider {
 //         $this->setModulePermissions();
 //        Gate::policy(\Indianic\CountryStateCityManagement\Models\Country::class, CountryStateCityManagementPolicy::class);
 
+
+
         Nova::serving(function (ServingNova $event) {
 
             Nova::resources([
@@ -33,28 +36,30 @@ class CountryStateCityManagementServiceProvider extends ServiceProvider {
             ]);
         });
 
-        if ($this->app->runningInConsole()) {
-            $this->loadMigrationsFrom(base_path('vendor/indianic/country-state-city-management-new/src/Database/migrations'));
-            $path = 'vendor/indianic/country-state-city-management-new/src/Database';
-            $migrationPath = $path . "/migrations";
-            if (is_dir($migrationPath)) {
-                foreach (array_diff(scandir($migrationPath, SCANDIR_SORT_NONE), [".", ".."]) as $migration) {
-                    Artisan::call('migrate', [
-                        '--path' => $migrationPath . "/" . $migration
-                    ]);
+        if (!Schema::hasTable('countries')) {
+            if ($this->app->runningInConsole()) {
+                $this->loadMigrationsFrom(base_path('vendor/indianic/country-state-city-management-new/src/Database/migrations'));
+                $path = 'vendor/indianic/country-state-city-management-new/src/Database';
+                $migrationPath = $path . "/migrations";
+                if (is_dir($migrationPath)) {
+                    foreach (array_diff(scandir($migrationPath, SCANDIR_SORT_NONE), [".", ".."]) as $migration) {
+                        Artisan::call('migrate', [
+                            '--path' => $migrationPath . "/" . $migration
+                        ]);
+                    }
                 }
-            }
 
-            if (is_dir($path . "/Seeders")) {
-                $file_names = glob($path . "/Seeders" . '/*.php');
-                foreach ($file_names as $filename) {
-                    $class = basename($filename, '.php');
-                    echo "\033[1;33mSeeding:\033[0m {$class}\n";
-                    $startTime = microtime(true);
-                    Artisan::call('db:seed', ['--class' => 'Indianic\\CountryStateCityManagement\\Database\\Seeders\\' . $class, '--force' => '']);
-                    $runTime = round(microtime(true) - $startTime, 2);
-                    echo "\033[0;32mSeeded:\033[0m {$class} ({$runTime} seconds)\n";
-                }
+//                if (is_dir($path . "/Seeders")) {
+//                    $file_names = glob($path . "/Seeders" . '/*.php');
+//                    foreach ($file_names as $filename) {
+//                        $class = basename($filename, '.php');
+//                        echo "\033[1;33mSeeding:\033[0m {$class}\n";
+//                        $startTime = microtime(true);
+//                        Artisan::call('db:seed', ['--class' => 'Indianic\\CountryStateCityManagement\\Database\\Seeders\\' . $class, '--force' => '']);
+//                        $runTime = round(microtime(true) - $startTime, 2);
+//                        echo "\033[0;32mSeeded:\033[0m {$class} ({$runTime} seconds)\n";
+//                    }
+//                }
             }
         }
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
