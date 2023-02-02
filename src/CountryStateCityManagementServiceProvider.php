@@ -22,8 +22,8 @@ class CountryStateCityManagementServiceProvider extends ServiceProvider {
      */
     public function boot() {
 
-//         $this->setModulePermissions();
-//        Gate::policy(\Indianic\CountryStateCityManagement\Models\Country::class, CountryStateCityManagementPolicy::class);
+        $this->setModulePermissions();
+        Gate::policy(\Indianic\CountryStateCityManagement\Models\Country::class, CountryStateCityManagementPolicy::class);
 
 
 
