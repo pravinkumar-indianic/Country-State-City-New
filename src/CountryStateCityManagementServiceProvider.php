@@ -66,27 +66,27 @@ class CountryStateCityManagementServiceProvider extends ServiceProvider {
         $existingPermissions = config('nova-permissions.permissions');
 
         $existingPermissions['view country-management'] = [
-            'display_name' => 'View country management',
-            'description' => 'Can view country management',
-            'group' => 'country management'
+            'display_name' => 'View Country Management',
+            'description' => 'Can view Country Management',
+            'group' => 'Country Management'
         ];
 
         $existingPermissions['create country-management'] = [
-            'display_name' => 'Create country management',
-            'description'  => 'Can create country management',
-            'group'        => 'country management'
+            'display_name' => 'Create Country Management',
+            'description'  => 'Can create Country Management',
+            'group'        => 'Country Management'
         ];
 
         $existingPermissions['update country-management'] = [
-            'display_name' => 'Update country management',
-            'description' => 'Can update country management',
-            'group' => 'country management'
+            'display_name' => 'Update Country Management',
+            'description' => 'Can update Country Management',
+            'group' => 'Country Management'
         ];
 
         $existingPermissions['delete country-management'] = [
-            'display_name' => 'Delete country management',
-            'description'  => 'Can delete country management',
-            'group'        => 'country management'
+            'display_name' => 'Delete Country Management',
+            'description'  => 'Can delete Country Management',
+            'group'        => 'Country Management'
         ];
 
         \Config::set('nova-permissions.permissions', $existingPermissions);
